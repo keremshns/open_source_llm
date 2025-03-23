@@ -40,7 +40,7 @@ print(tokenized_datasets)
 
 # Define training arguments
 training_args = TrainingArguments(
-    output_dir=r'C:\Users\kerem\Desktop\JOB\bmw-tasks\bmw_code\mnt\disks\disk1\results\output_dir',
+    output_dir=r'.\results',
     eval_strategy='epoch',
     per_device_train_batch_size=2,
     per_device_eval_batch_size=2,
@@ -50,7 +50,7 @@ training_args = TrainingArguments(
     #max_steps=5000,
     warmup_steps=500,
     weight_decay=0.01,
-    logging_dir=r'C:\Users\kerem\Desktop\JOB\bmw-tasks\bmw_code\output_dir\mnt\disks\disk1\logs'
+    logging_dir=r'.\logs'
 )
 
 
@@ -67,7 +67,7 @@ trainer = Trainer(
 trainer.train()
 
 # save the model and tokenizer explicitly
-model_output_dir = '/mnt/disks/disk1/results/model'
+model_output_dir = './finetuned_gpt2'
 
 model.save_pretrained(model_output_dir)
 tokenizer.save_pretrained(model_output_dir)
